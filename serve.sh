@@ -5,7 +5,7 @@
 source ~/venv/bin/activate
 
 # Which model to serve: the 4-bit (AWQ) version that includes the MTP draft head.
-MODEL=CMKL/MANGO1.5-Qwen3.5-9B-AWQ-W4A16-mtp
+MODEL=CMKL/MANGO1.5-Qwen3.5-9B
 # Port the server listens on. Grader endpoint: http://<vm-ip>:8000/v1
 PORT=8000
 # GPU power cap in watts, held for the whole run (A100 default 400, min 100).
@@ -46,16 +46,34 @@ export VLLM_USE_FLASHINFER_SAMPLER=0
 #   --async-scheduling             as in the best submission
 #   2>&1 | tee serve.log           show output on screen AND save it to runs/$RUN/serve.log
 
+BT=${BT:-2048}        # max batched tokens per step; override with: BT=1024 bash serve.sh name
+MTP=${MTP:-2}         # speculative tokens
 
 vllm serve $MODEL \
-  --revision c44c8a80f9de5c6b252ce39a419dcf6015512afb \
   --host 0.0.0.0 --port $PORT \
   --language-model-only \
   --enable-auto-tool-choice --tool-call-parser qwen3_coder \
   --reasoning-parser qwen3 \
   --max-model-len 40960 --gpu-memory-utilization 0.95 \
-  --speculative-config '{"method":"mtp","num_speculative_tokens":3}' \
-  --max-num-batched-tokens 8192 \
-  --long-prefill-token-threshold 1024 \
+  --speculative-config "{\"method\":\"mtp\",\"num_speculative_tokens\":$MTP}" \
+  --max-num-batched-tokens $BT \
+  --long-prefill-token-threshold $((BT/2)) \
   --max-num-seqs 160 \
+  --kv-cache-dtype fp8 \
+  --async-scheduling \
   2>&1 | tee ~/greenmind/runs/$RUN/serve.log
+
+# vllm serve $MODEL \
+#   --revision c44c8a80f9de5c6b252ce39a419dcf6015512afb \
+#   --host 0.0.0.0 --port $PORT \
+#   --language-model-only \
+#   --enable-auto-tool-choice --tool-call-parser qwen3_coder \
+#   --reasoning-parser qwen3 \
+#   --max-model-len 40960 --gpu-memory-utilization 0.95 \
+#   --speculative-config "{\"method\":\"mtp\",\"num_speculative_tokens\":$MTP}" \
+#   --max-num-batched-tokens $BT \
+#   --long-prefill-token-threshold $((BT/2)) \
+#   --max-num-seqs 160 \
+#   --kv-cache-dtype fp8 \
+#   --async-scheduling \
+#   2>&1 | tee ~/greenmind/runs/$RUN/serve.log
