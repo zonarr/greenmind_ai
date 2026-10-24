@@ -49,18 +49,18 @@ export VLLM_USE_FLASHINFER_SAMPLER=0
 BT=${BT:-2560}        # max batched tokens per step; override with: BT=1024 bash serve.sh name
 MTP=${MTP:-3}         # speculative tokens
 
-vllm serve $MODEL \
-  --host 0.0.0.0 --port $PORT \
-  --language-model-only \
-  --enable-auto-tool-choice --tool-call-parser qwen3_coder \
-  --reasoning-parser qwen3 \
-  --max-model-len 40960 --gpu-memory-utilization 0.95 \
-  --speculative-config "{\"method\":\"mtp\",\"num_speculative_tokens\":$MTP}" \
-  --max-num-batched-tokens $BT \
-  --long-prefill-token-threshold $((BT/2)) \
-  --max-num-seqs 160 \
-  --async-scheduling \
-  2>&1 | tee ~/greenmind/runs/$RUN/serve.log
+# vllm serve $MODEL \
+#   --host 0.0.0.0 --port $PORT \
+#   --language-model-only \
+#   --enable-auto-tool-choice --tool-call-parser qwen3_coder \
+#   --reasoning-parser qwen3 \
+#   --max-model-len 40960 --gpu-memory-utilization 0.95 \
+#   --speculative-config "{\"method\":\"mtp\",\"num_speculative_tokens\":$MTP}" \
+#   --max-num-batched-tokens $BT \
+#   --long-prefill-token-threshold $((BT/2)) \
+#   --max-num-seqs 160 \
+#   --async-scheduling \
+#   2>&1 | tee ~/greenmind/runs/$RUN/serve.log
 
 # vllm serve $MODEL \
 #   --revision c44c8a80f9de5c6b252ce39a419dcf6015512afb \
@@ -76,3 +76,17 @@ vllm serve $MODEL \
 #   --kv-cache-dtype fp8 \
 #   --async-scheduling \
 #   2>&1 | tee ~/greenmind/runs/$RUN/serve.log
+
+vllm serve $MODEL \
+  --host 0.0.0.0 --port $PORT \
+  --language-model-only \
+  --enable-auto-tool-choice --tool-call-parser qwen3_coder \
+  --reasoning-parser qwen3 \
+  --max-model-len 40960 --gpu-memory-utilization 0.95 \
+  --speculative-config '{"method":"mtp","num_speculative_tokens":2}' \
+  --max-num-batched-tokens 2048 \
+  --long-prefill-token-threshold 1024 \
+  --max-num-seqs 160 \
+  --async-scheduling \
+  --no-enable-prefix-caching \
+  2>&1 | tee ~/greenmind/runs/$RUN/serve.log
