@@ -89,4 +89,5 @@ vllm serve $MODEL \
   --max-num-seqs 160 \
   --async-scheduling \
   --no-enable-prefix-caching \
+  --quantization fp8 \
   2>&1 | tee ~/greenmind/runs/$RUN/serve.log
