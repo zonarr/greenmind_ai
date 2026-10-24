@@ -5,7 +5,7 @@
 source ~/venv/bin/activate
 
 # Which model to serve: the 4-bit (AWQ) version that includes the MTP draft head.
-MODEL=CMKL/MANGO1.5-Qwen3.5-9B
+MODEL=CMKL/MANGO1.5-Qwen3.5-9B-AWQ-W4A16-mtp
 # Port the server listens on. Grader endpoint: http://<vm-ip>:8000/v1
 PORT=8000
 # GPU power cap in watts, held for the whole run (A100 default 400, min 100).
