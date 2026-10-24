@@ -52,11 +52,9 @@ vllm serve $MODEL \
   --language-model-only \
   --enable-auto-tool-choice --tool-call-parser qwen3_coder \
   --reasoning-parser qwen3 \
-  --max-model-len 40960 --gpu-memory-utilization 0.95 \
-  --speculative-config '{"method":"mtp","num_speculative_tokens":2}' \
+  --max-model-len 40960 --gpu-memory-utilization 0.90 \
+  --speculative-config '{"method":"mtp","num_speculative_tokens":3}' \
   --max-num-batched-tokens 8192 \
   --long-prefill-token-threshold 2048 \
   --max-num-seqs 160 \
-  --kv-cache-dtype fp8 \
-  --async-scheduling \
   2>&1 | tee ~/greenmind/runs/$RUN/serve.log
