@@ -59,7 +59,6 @@ vllm serve $MODEL \
   --max-num-batched-tokens $BT \
   --long-prefill-token-threshold $((BT/2)) \
   --max-num-seqs 160 \
-  --kv-cache-dtype fp8 \
   --async-scheduling \
   2>&1 | tee ~/greenmind/runs/$RUN/serve.log
 
