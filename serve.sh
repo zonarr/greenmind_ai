@@ -46,6 +46,7 @@ export VLLM_USE_FLASHINFER_SAMPLER=0
 #   --async-scheduling             as in the best submission
 #   2>&1 | tee serve.log           show output on screen AND save it to runs/$RUN/serve.log
 
+
 vllm serve $MODEL \
   --revision c44c8a80f9de5c6b252ce39a419dcf6015512afb \
   --host 0.0.0.0 --port $PORT \
@@ -55,6 +56,6 @@ vllm serve $MODEL \
   --max-model-len 40960 --gpu-memory-utilization 0.90 \
   --speculative-config '{"method":"mtp","num_speculative_tokens":3}' \
   --max-num-batched-tokens 8192 \
-  --long-prefill-token-threshold 2048 \
+  --long-prefill-token-threshold 1024 \
   --max-num-seqs 160 \
   2>&1 | tee ~/greenmind/runs/$RUN/serve.log
