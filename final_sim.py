@@ -1,14 +1,21 @@
 """GreenMind: local stand-in for the Final test.
 
 Sends 300 synthetic requests to your vLLM server in the same SHAPE as the
-Final (from the briefing): open-loop ramp 0 -> 4 req/s, a 4 req/s peak, then a
-1 req/s quiet phase; the same class mix; thinking on, max_tokens 8192,
+Final: an opening phase, a peak and a quiet phase; the same class mix as the
+briefing; thinking on, max_tokens 8192,
 temperature 0, streaming; multi-turn tool-calling episodes. It then applies the
 same SLO rules and scoring formula and prints an estimated score.
 
 The prompts are made up here (no hidden test items). Treat the estimated score
 as a way to COMPARE configs on your own VM, not as a prediction of the real
 Final. Never run it while a graded submission is running.
+
+Calibrated (v2) against the real Final 12 in runs/20261025-0155-unnamed: there
+the grader sent ~655 calls in ~200 s (about 2.7 calls/s for 70 s, 5-7 calls/s
+for 60 s, ~2.5 calls/s for 50 s), averaging ~1120 prompt and ~410 output
+tokens per call. The default rates, prompt sizes and thinking budget below are
+set so this script produces about the same. Check the "avg prompt / output"
+line of each run against those numbers.
 
 Usage (in the venv, server already running):
   python final_sim.py                       # full run, ~4 min
@@ -177,7 +184,7 @@ def make_messages(cls: str, rng: random.Random) -> tuple[list, int]:
         )
         return [{"role": "user", "content": task}], 1
     if cls in ("rag", "long"):
-        tokens = rng.randint(1500, 6000) if cls == "rag" else rng.randint(8000, 28000)
+        tokens = rng.randint(1200, 5000) if cls == "rag" else rng.randint(6000, 22000)
         doc = filler(rng, tokens)
         name = rng.choice(NAMES)
         fact = f"{name} recorded exactly {rng.randint(100, 999)} visitors at the {rng.choice(WORDS)}."
@@ -345,11 +352,15 @@ async def one_request(i, cls, t_arrive, phase, args, client, model, t0, results)
 
 
 def schedule(args):
-    """Open-loop arrival times: ramp 0->peak rate, peak, quiet."""
+    """Open-loop arrival times: opening phase, peak, quiet (flat rates).
+
+    Rates count requests; tool-calling episodes add their follow-up turns on
+    top, so the server sees about 2.2 calls per request, like the real Final.
+    """
     times = []
-    n_ramp = round(args.ramp * args.peak_rate / 2)
-    for k in range(1, n_ramp + 1):  # N(t) = rate*t^2/(2*ramp)
-        times.append((math.sqrt(2 * args.ramp * k / args.peak_rate), "ramp"))
+    n_ramp = round(args.ramp * args.ramp_rate)
+    for k in range(n_ramp):
+        times.append((k / args.ramp_rate, "ramp"))
     n_peak = round(args.peak * args.peak_rate)
     for k in range(n_peak):
         times.append((args.ramp + k / args.peak_rate, "peak"))
@@ -393,13 +404,14 @@ async def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--url", default="http://localhost:8000/v1")
     ap.add_argument("--model", default=None, help="default: first model the server lists")
-    ap.add_argument("--ramp", type=float, default=50, help="ramp seconds (0 -> peak rate)")
-    ap.add_argument("--peak", type=float, default=35, help="peak seconds")
-    ap.add_argument("--quiet", type=float, default=60, help="quiet seconds")
-    ap.add_argument("--peak-rate", type=float, default=4.0)
-    ap.add_argument("--quiet-rate", type=float, default=1.0)
+    ap.add_argument("--ramp", type=float, default=70, help="opening phase seconds")
+    ap.add_argument("--peak", type=float, default=60, help="peak seconds")
+    ap.add_argument("--quiet", type=float, default=50, help="quiet seconds")
+    ap.add_argument("--ramp-rate", type=float, default=1.3, help="requests/s in the opening phase")
+    ap.add_argument("--peak-rate", type=float, default=2.4, help="requests/s in the peak")
+    ap.add_argument("--quiet-rate", type=float, default=1.3, help="requests/s in the quiet phase")
     ap.add_argument("--scale", type=float, default=1.0, help="shrink all phases, e.g. 0.3 for a smoke test")
-    ap.add_argument("--thinking-budget", type=int, default=512,
+    ap.add_argument("--thinking-budget", type=int, default=128,
                     help="thinking_token_budget sent with each call (0 = don't send)")
     ap.add_argument("--seed", type=int, default=1)
     ap.add_argument("--label", default="run")
@@ -457,11 +469,13 @@ async def main():
         if r["miss"]:
             reasons[r["miss"]] = reasons.get(r["miss"], 0) + 1
     print(f"  missed because: {reasons or 'nothing'}")
+    print(f"  single calls on time: {sum(1 for c in calls if not c['miss'])}/{len(calls)} "
+          f"(agentic episodes above count only if EVERY turn was on time)")
     print(f"  p95 TTFT {p95([c['ttft'] for c in calls]) or 0:.2f} s "
           f"({p95_ttft_ratio or 0:.1f}x its SLO), p95 TPOT {(p95_tpot or 0) * 1000:.0f} ms")
     print(f"  avg prompt {statistics.mean(c['prompt_tokens'] for c in calls):.0f} tokens, "
           f"avg output {statistics.mean(c['completion_tokens'] for c in calls):.0f} tokens per call "
-          f"(real Final: ~1130 / ~375)")
+          f"(real Final 12: ~1120 / ~410)")
     errors = [c["error"] for c in calls if c["error"]]
     if errors:
         print(f"  {len(errors)} errors, first: {errors[0]}")
