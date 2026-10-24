@@ -10,7 +10,7 @@ MODEL=CMKL/MANGO1.5-Qwen3.5-9B-AWQ-W4A16-mtp
 PORT=8000
 # GPU power cap in watts, held for the whole run (A100 default 400, min 100).
 # Override per run: POWER_LIMIT=200 bash serve.sh mtp2-async-pl200
-POWER_LIMIT=${POWER_LIMIT:-250}
+POWER_LIMIT=${POWER_LIMIT:-400}
 
 # Refuse to start if an old server still holds the port (avoids "Address already in use" runs)
 if ss -ltn | grep -q ":$PORT "; then
@@ -53,10 +53,8 @@ vllm serve $MODEL \
   --enable-auto-tool-choice --tool-call-parser qwen3_coder \
   --reasoning-parser qwen3 \
   --max-model-len 40960 --gpu-memory-utilization 0.95 \
-  --speculative-config '{"method":"mtp","num_speculative_tokens":2}' \
+  --speculative-config '{"method":"mtp","num_speculative_tokens":3}' \
   --max-num-batched-tokens 8192 \
   --long-prefill-token-threshold 2048 \
   --max-num-seqs 160 \
-  --kv-cache-dtype fp8 \
-  --async-scheduling \
   2>&1 | tee ~/greenmind/runs/$RUN/serve.log

@@ -10,7 +10,7 @@ MODEL=CMKL/MANGO1.5-Qwen3.5-9B-AWQ-W4A16-mtp
 PORT=8000
 # GPU power cap in watts, held for the whole run (A100 default 400, min 100).
 # Override per run: POWER_LIMIT=200 bash serve.sh mtp2-async-pl200
-POWER_LIMIT=${POWER_LIMIT:-250}
+POWER_LIMIT=${POWER_LIMIT:-400}
 
 # Refuse to start if an old server still holds the port (avoids "Address already in use" runs)
 if ss -ltn | grep -q ":$PORT "; then
