@@ -4,7 +4,7 @@ RUN=${1:-$(date +%Y%m%d-%H%M)}
 DIR=~/greenmind/runs/$RUN
 mkdir -p $DIR
 
-cp ~/greenmind/serve.sh $DIR/serve.sh
+cp "${2:-$HOME/greenmind/serve.sh}" "$DIR/serve.sh"
 
 {
   echo "date:   $(date -Is)"

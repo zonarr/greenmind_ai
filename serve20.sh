@@ -23,5 +23,7 @@ vllm serve "$MODEL" \
   --tool-call-parser qwen3_coder \
   --max-model-len 40960 \
   --gpu-memory-utilization 0.90 \
-  --max-num-batched-tokens 4096 \
-  2>&1 | tee "logs/awq-no-mtp-b4096-${RUN_ID}.log"
+  --max-num-batched-tokens 8192 \
+  --long-prefill-token-threshold 2048 \
+  --speculative-config '{"method":"mtp","num_speculative_tokens":3}' \
+  2>&1 | tee "logs/awq-20-${RUN_ID}.log"
