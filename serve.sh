@@ -105,8 +105,23 @@ MTP=${MTP:-3}         # speculative tokens
 #   --async-scheduling \
 #   2>&1 | tee ~/greenmind/runs/$RUN/serve.log
 
-vllm serve CMKL/MANGO1.5-Qwen3.5-9B-AWQ-W4A16-mtp \
-  --revision c44c8a80f9de5c6b252ce39a419dcf6015512afb \
+# vllm serve CMKL/MANGO1.5-Qwen3.5-9B-AWQ-W4A16-mtp \
+#   --revision c44c8a80f9de5c6b252ce39a419dcf6015512afb \
+#   --host 0.0.0.0 --port $PORT \
+#   --language-model-only \
+#   --enable-auto-tool-choice --tool-call-parser qwen3_coder \
+#   --reasoning-parser qwen3 \
+#   --max-model-len 40960 --gpu-memory-utilization 0.95 \
+#   --speculative-config '{"method":"mtp","num_speculative_tokens":3}' \
+#   --max-num-batched-tokens 1536 \
+#   --long-prefill-token-threshold 768 \
+#   --max-num-seqs 64 \
+#   --prefix-match-unit 32 \
+#   --async-scheduling \
+#   2>&1 | tee ~/greenmind/runs/$RUN/serve.log
+
+vllm serve /home/researcher/models/MANGO1.5-Qwen3.5-9B-W8A8 \
+  --served-model-name CMKL/MANGO1.5-Qwen3.5-9B \
   --host 0.0.0.0 --port $PORT \
   --language-model-only \
   --enable-auto-tool-choice --tool-call-parser qwen3_coder \
