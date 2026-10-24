@@ -10,7 +10,7 @@ MODEL=CMKL/MANGO1.5-Qwen3.5-9B-AWQ-W4A16-mtp
 PORT=8000
 # GPU power cap in watts, held for the whole run (A100 default 400, min 100).
 # Override per run: POWER_LIMIT=200 bash serve.sh mtp2-async-pl200
-POWER_LIMIT=${POWER_LIMIT:-250}
+POWER_LIMIT=${POWER_LIMIT:-400}
 
 # Refuse to start if an old server still holds the port (avoids "Address already in use" runs)
 if ss -ltn | grep -q ":$PORT "; then
@@ -31,7 +31,7 @@ bash ~/greenmind/record.sh "$RUN" "$(realpath "$0")"
 # VLLM_NO_USAGE_STATS=1 / DO_NOT_TRACK=1   turn off vLLM's anonymous telemetry
 export HF_HUB_OFFLINE=1 VLLM_NO_USAGE_STATS=1 DO_NOT_TRACK=1
 export VLLM_USE_FLASHINFER_SAMPLER=0
-
+export GREENMIND_SLO_QUEUE=1
 # Start the server. Each line ending in \ continues the same command.
 #   --host 0.0.0.0                 accept connections from outside the VM (the grader)
 #   --port $PORT                   listen on port 8000
@@ -77,6 +77,20 @@ MTP=${MTP:-3}         # speculative tokens
 #   --async-scheduling \
 #   2>&1 | tee ~/greenmind/runs/$RUN/serve.log
 
+# vllm serve CMKL/MANGO1.5-Qwen3.5-9B-AWQ-W4A16-mtp \
+#   --revision c44c8a80f9de5c6b252ce39a419dcf6015512afb \
+#   --host 0.0.0.0 --port $PORT \
+#   --language-model-only \
+#   --enable-auto-tool-choice --tool-call-parser qwen3_coder \
+#   --reasoning-parser qwen3 \
+#   --max-model-len 40960 --gpu-memory-utilization 0.95 \
+#   --speculative-config '{"method":"mtp","num_speculative_tokens":3}' \
+#   --max-num-batched-tokens 4096 \
+#   --long-prefill-token-threshold 2048 \
+#   --max-num-seqs 160 \
+#   --kv-cache-dtype fp8 \
+#   2>&1 | tee ~/greenmind/runs/$RUN/serve.log
+
 vllm serve CMKL/MANGO1.5-Qwen3.5-9B-AWQ-W4A16-mtp \
   --revision c44c8a80f9de5c6b252ce39a419dcf6015512afb \
   --host 0.0.0.0 --port $PORT \
@@ -85,8 +99,8 @@ vllm serve CMKL/MANGO1.5-Qwen3.5-9B-AWQ-W4A16-mtp \
   --reasoning-parser qwen3 \
   --max-model-len 40960 --gpu-memory-utilization 0.95 \
   --speculative-config '{"method":"mtp","num_speculative_tokens":3}' \
-  --max-num-batched-tokens 4096 \
-  --long-prefill-token-threshold 2048 \
-  --max-num-seqs 160 \
-  --kv-cache-dtype fp8 \
+  --max-num-batched-tokens 2048 \
+  --long-prefill-token-threshold 1024 \
+  --max-num-seqs 64 \
+  --async-scheduling \
   2>&1 | tee ~/greenmind/runs/$RUN/serve.log
