@@ -46,8 +46,8 @@ export VLLM_USE_FLASHINFER_SAMPLER=0
 #   --async-scheduling             as in the best submission
 #   2>&1 | tee serve.log           show output on screen AND save it to runs/$RUN/serve.log
 
-BT=${BT:-2048}        # max batched tokens per step; override with: BT=1024 bash serve.sh name
-MTP=${MTP:-2}         # speculative tokens
+BT=${BT:-2560}        # max batched tokens per step; override with: BT=1024 bash serve.sh name
+MTP=${MTP:-3}         # speculative tokens
 
 vllm serve $MODEL \
   --host 0.0.0.0 --port $PORT \
