@@ -1,0 +1,3239 @@
+{
+ "args": {
+  "url": "http://localhost:8000/v1",
+  "model": null,
+  "ramp": 15.0,
+  "peak": 10.5,
+  "quiet": 18.0,
+  "peak_rate": 4.0,
+  "quiet_rate": 1.0,
+  "scale": 0.3,
+  "thinking_budget": 512,
+  "seed": 1,
+  "label": "smoke",
+  "out": "/home/researcher/greenmind/sim"
+ },
+ "estimated_S": 0.0,
+ "on_time": 33,
+ "results": [
+  {
+   "i": 4,
+   "cls": "reasoning",
+   "phase": "ramp",
+   "arrive": 6.123724356957945,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868257.0352983,
+     "ttft": 0.0708320140838623,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 52,
+     "completion_tokens": 514,
+     "tpot": 0.02584158421492251,
+     "ttft_ratio": 0.13807410152799668,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 1,
+   "cls": "rag",
+   "phase": "ramp",
+   "arrive": 3.872983346207417,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868254.7853677,
+     "ttft": 0.5846598148345947,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 2110,
+     "completion_tokens": 687,
+     "tpot": 0.023401800119494557,
+     "ttft_ratio": 0.5690119852404816,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 10,
+   "cls": "agentic",
+   "phase": "ramp",
+   "arrive": 9.082951062292475,
+   "on_time": false,
+   "miss": "tpot",
+   "calls": [
+    {
+     "t_send": 1792868259.994285,
+     "ttft": 0.17980480194091797,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 549,
+     "completion_tokens": 106,
+     "tpot": 0.018391675040835425,
+     "ttft_ratio": 0.28215739810265666,
+     "miss": null
+    },
+    {
+     "t_send": 1792868262.2480154,
+     "ttft": 0.4721717834472656,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 612,
+     "completion_tokens": 59,
+     "tpot": 0.051030450853808175,
+     "ttft_ratio": 0.7230808322316472,
+     "miss": "tpot"
+    },
+    {
+     "t_send": 1792868265.8809896,
+     "ttft": 3.3055975437164307,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 682,
+     "completion_tokens": 40,
+     "tpot": 0.0520167717566857,
+     "ttft_ratio": 4.93004853648983,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868271.4278364,
+     "ttft": 0.6132769584655762,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 747,
+     "completion_tokens": 145,
+     "tpot": 0.04964330461290148,
+     "ttft_ratio": 0.8930134087594848,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 6,
+   "cls": "reasoning",
+   "phase": "ramp",
+   "arrive": 7.245688373094719,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868258.1572852,
+     "ttft": 0.07283473014831543,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 33,
+     "completion_tokens": 714,
+     "tpot": 0.035146105339617414,
+     "ttft_ratio": 0.14330492896864816,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 30,
+   "cls": "agentic",
+   "phase": "peak",
+   "arrive": 15.0,
+   "on_time": false,
+   "miss": "tpot",
+   "calls": [
+    {
+     "t_send": 1792868265.9118226,
+     "ttft": 0.5472438335418701,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 542,
+     "completion_tokens": 196,
+     "tpot": 0.057459702858558066,
+     "ttft_ratio": 0.8611232628510939,
+     "miss": "tpot"
+    },
+    {
+     "t_send": 1792868277.8722906,
+     "ttft": 0.6582190990447998,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 607,
+     "completion_tokens": 171,
+     "tpot": 0.02802615165710449,
+     "ttft_ratio": 1.0099257369310315,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 50,
+   "cls": "agentic",
+   "phase": "peak",
+   "arrive": 20.0,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868270.9109426,
+     "ttft": 4.99083399772644,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 550,
+     "completion_tokens": 155,
+     "tpot": 0.03356356744642382,
+     "ttft_ratio": 7.828759212119907,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868281.1425717,
+     "ttft": 0.4065382480621338,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 627,
+     "completion_tokens": 62,
+     "tpot": 0.023492258103167424,
+     "ttft_ratio": 0.619015223543409,
+     "miss": null
+    },
+    {
+     "t_send": 1792868283.0539238,
+     "ttft": 0.3990669250488281,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 705,
+     "completion_tokens": 10,
+     "tpot": 0.030525816811455622,
+     "ttft_ratio": 0.5901174492404112,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 9,
+   "cls": "chat",
+   "phase": "ramp",
+   "arrive": 8.660254037844387,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868259.5710757,
+     "ttft": 0.21268653869628906,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 160,
+     "completion_tokens": 614,
+     "tpot": 0.04014619917503967,
+     "ttft_ratio": 0.39386396054868344,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 14,
+   "cls": "rag",
+   "phase": "ramp",
+   "arrive": 10.606601717798213,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868261.518419,
+     "ttft": 0.8850746154785156,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 3050,
+     "completion_tokens": 517,
+     "tpot": 0.04301934417828109,
+     "ttft_ratio": 0.7010492003790223,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 16,
+   "cls": "long",
+   "phase": "ramp",
+   "arrive": 11.291589790636214,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868262.202645,
+     "ttft": 3.6778481006622314,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 10882,
+     "completion_tokens": 517,
+     "tpot": 0.03911532126655874,
+     "ttft_ratio": 1.1420115201559482,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 21,
+   "cls": "rag",
+   "phase": "ramp",
+   "arrive": 12.84523257866513,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868263.757319,
+     "ttft": 2.5284392833709717,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 6739,
+     "completion_tokens": 517,
+     "tpot": 0.03909219327823136,
+     "ttft_ratio": 1.1573128657150573,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 26,
+   "cls": "chat",
+   "phase": "ramp",
+   "arrive": 14.230249470757707,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868265.1416554,
+     "ttft": 0.5387649536132812,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 197,
+     "completion_tokens": 513,
+     "tpot": 0.041566242929548025,
+     "ttft_ratio": 0.980910247816625,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 24,
+   "cls": "rag",
+   "phase": "ramp",
+   "arrive": 13.693063937629153,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868264.6048787,
+     "ttft": 3.6148488521575928,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 6695,
+     "completion_tokens": 527,
+     "tpot": 0.03631438501887448,
+     "ttft_ratio": 1.662955193632015,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 12,
+   "cls": "long",
+   "phase": "ramp",
+   "arrive": 9.874208829065749,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868260.7862828,
+     "ttft": 7.247758865356445,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 24384,
+     "completion_tokens": 517,
+     "tpot": 0.03762107625488163,
+     "ttft_ratio": 1.0988112288290548,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 57,
+   "cls": "chat",
+   "phase": "peak",
+   "arrive": 21.75,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868272.6628222,
+     "ttft": 6.8237245082855225,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 372,
+     "completion_tokens": 234,
+     "tpot": 0.03364090141820294,
+     "ttft_ratio": 11.507123960009313,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 5,
+   "cls": "agentic",
+   "phase": "ramp",
+   "arrive": 6.708203932499369,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868257.6193526,
+     "ttft": 0.1301264762878418,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 567,
+     "completion_tokens": 162,
+     "tpot": 0.007504814159796105,
+     "ttft_ratio": 0.2027681749713156,
+     "miss": null
+    },
+    {
+     "t_send": 1792868258.958239,
+     "ttft": 0.13457274436950684,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 632,
+     "completion_tokens": 55,
+     "tpot": 0.015868937527691876,
+     "ttft_ratio": 0.20451784858587665,
+     "miss": null
+    },
+    {
+     "t_send": 1792868259.9501283,
+     "ttft": 0.25209712982177734,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 698,
+     "completion_tokens": 26,
+     "tpot": 0.004484291076660156,
+     "ttft_ratio": 0.373754084242813,
+     "miss": null
+    },
+    {
+     "t_send": 1792868260.3427856,
+     "ttft": 0.23592042922973633,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 762,
+     "completion_tokens": 29,
+     "tpot": 0.005073172705514091,
+     "ttft_ratio": 0.3416660814333618,
+     "miss": null
+    },
+    {
+     "t_send": 1792868260.7209976,
+     "ttft": 0.29772377014160156,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 832,
+     "completion_tokens": 27,
+     "tpot": 0.0135576083109929,
+     "ttft_ratio": 0.4205137996350305,
+     "miss": null
+    },
+    {
+     "t_send": 1792868261.4536726,
+     "ttft": 0.6517925262451172,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 897,
+     "completion_tokens": 27,
+     "tpot": 0.0236361943758451,
+     "ttft_ratio": 0.8999551622300547,
+     "miss": null
+    },
+    {
+     "t_send": 1792868262.8433428,
+     "ttft": 0.9452977180480957,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 962,
+     "completion_tokens": 28,
+     "tpot": 0.02658687697516547,
+     "ttft_ratio": 1.2765668035760915,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868264.6971679,
+     "ttft": 4.674492359161377,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1030,
+     "completion_tokens": 27,
+     "tpot": 0.030662096463716947,
+     "ttft_ratio": 6.170947008793896,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868270.3664515,
+     "ttft": 5.534904956817627,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1096,
+     "completion_tokens": 27,
+     "tpot": 0.019579722331120417,
+     "ttft_ratio": 7.151039995888406,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868276.5390308,
+     "ttft": 0.910285234451294,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1161,
+     "completion_tokens": 26,
+     "tpot": 0.030386228561401368,
+     "ttft_ratio": 1.1518952666261233,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868278.3515189,
+     "ttft": 6.2555601596832275,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1225,
+     "completion_tokens": 110,
+     "tpot": 0.028987484240750653,
+     "ttft_ratio": 7.758834306583848,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 49,
+   "cls": "rag",
+   "phase": "peak",
+   "arrive": 19.75,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868270.6610181,
+     "ttft": 1.156174898147583,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 2550,
+     "completion_tokens": 522,
+     "tpot": 0.0338731892049427,
+     "ttft_ratio": 1.016417492876996,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 53,
+   "cls": "rag",
+   "phase": "peak",
+   "arrive": 20.75,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868271.6614783,
+     "ttft": 2.004779815673828,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 4174,
+     "completion_tokens": 517,
+     "tpot": 0.031487513420193694,
+     "ttft_ratio": 1.2988531361670412,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 18,
+   "cls": "chat",
+   "phase": "ramp",
+   "arrive": 11.937336386313323,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868262.8491354,
+     "ttft": 0.47767210006713867,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 164,
+     "completion_tokens": 643,
+     "tpot": 0.042208759955527995,
+     "ttft_ratio": 0.8829428836730844,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 13,
+   "cls": "chat",
+   "phase": "ramp",
+   "arrive": 10.246950765959598,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868261.1583982,
+     "ttft": 0.21302223205566406,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 429,
+     "completion_tokens": 793,
+     "tpot": 0.03716557947072116,
+     "ttft_ratio": 0.3507982413432097,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 63,
+   "cls": "rag",
+   "phase": "peak",
+   "arrive": 23.25,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868274.1613963,
+     "ttft": 1.5854978561401367,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 2964,
+     "completion_tokens": 517,
+     "tpot": 0.031194941942081895,
+     "ttft_ratio": 1.2775969831910852,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 54,
+   "cls": "rag",
+   "phase": "peak",
+   "arrive": 21.0,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868271.9115534,
+     "ttft": 2.707117795944214,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 5675,
+     "completion_tokens": 517,
+     "tpot": 0.03390628884929095,
+     "ttft_ratio": 1.4108757242706,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 72,
+   "cls": "rag",
+   "phase": "quiet",
+   "arrive": 25.5,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868276.4108162,
+     "ttft": 1.4656987190246582,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 3249,
+     "completion_tokens": 517,
+     "tpot": 0.029848977114803107,
+     "ttft_ratio": 1.1169355831774876,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 8,
+   "cls": "rag",
+   "phase": "ramp",
+   "arrive": 8.215838362577491,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868259.1271164,
+     "ttft": 0.656557559967041,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 4408,
+     "completion_tokens": 922,
+     "tpot": 0.03636422866589342,
+     "ttft_ratio": 0.4098361797547072,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 66,
+   "cls": "reasoning",
+   "phase": "peak",
+   "arrive": 24.0,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868274.9112751,
+     "ttft": 0.6404376029968262,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 40,
+     "completion_tokens": 514,
+     "tpot": 0.03527716214661478,
+     "ttft_ratio": 1.2557600058761298,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 59,
+   "cls": "reasoning",
+   "phase": "peak",
+   "arrive": 22.25,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868273.1609468,
+     "ttft": 0.576862096786499,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 40,
+     "completion_tokens": 520,
+     "tpot": 0.038872992142546844,
+     "ttft_ratio": 1.1311021505617627,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 0,
+   "cls": "long",
+   "phase": "ramp",
+   "arrive": 2.7386127875258306,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868253.653374,
+     "ttft": 3.205395460128784,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 23186,
+     "completion_tokens": 1290,
+     "tpot": 0.02891789026460137,
+     "ttft_ratio": 0.5090757500403056,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 55,
+   "cls": "rag",
+   "phase": "peak",
+   "arrive": 21.25,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868272.1615293,
+     "ttft": 6.047551155090332,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 2242,
+     "completion_tokens": 528,
+     "tpot": 0.03071476205250344,
+     "ttft_ratio": 5.702547058076692,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 37,
+   "cls": "chat",
+   "phase": "peak",
+   "arrive": 16.75,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868267.6616,
+     "ttft": 0.5585227012634277,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 262,
+     "completion_tokens": 625,
+     "tpot": 0.04228477485668965,
+     "ttft_ratio": 0.9876617175303762,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 19,
+   "cls": "reasoning",
+   "phase": "ramp",
+   "arrive": 12.24744871391589,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868263.158517,
+     "ttft": 0.4795989990234375,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 40,
+     "completion_tokens": 709,
+     "tpot": 0.044302725859281036,
+     "ttft_ratio": 0.9403901941636029,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 67,
+   "cls": "chat",
+   "phase": "peak",
+   "arrive": 24.25,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868275.1610336,
+     "ttft": 0.5863831043243408,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 131,
+     "completion_tokens": 616,
+     "tpot": 0.031136339079073774,
+     "ttft_ratio": 1.1006721808058955,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 60,
+   "cls": "agentic",
+   "phase": "peak",
+   "arrive": 22.5,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868273.4118042,
+     "ttft": 6.074921369552612,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 554,
+     "completion_tokens": 147,
+     "tpot": 0.02442870564656715,
+     "ttft_ratio": 9.514363930387802,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868283.159733,
+     "ttft": 0.4220736026763916,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 620,
+     "completion_tokens": 54,
+     "tpot": 0.022553160505474738,
+     "ttft_ratio": 0.6443871796586131,
+     "miss": null
+    },
+    {
+     "t_send": 1792868284.8503282,
+     "ttft": 0.5962259769439697,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 683,
+     "completion_tokens": 26,
+     "tpot": 0.01365591049194336,
+     "ttft_ratio": 0.8888944866850089,
+     "miss": null
+    },
+    {
+     "t_send": 1792868285.8607202,
+     "ttft": 0.6017210483551025,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 746,
+     "completion_tokens": 29,
+     "tpot": 0.0180131196975708,
+     "ttft_ratio": 0.8765055329280445,
+     "miss": null
+    },
+    {
+     "t_send": 1792868286.9672174,
+     "ttft": 0.6699557304382324,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 815,
+     "completion_tokens": 27,
+     "tpot": 0.01655130202953632,
+     "ttft_ratio": 0.9519797235356766,
+     "miss": null
+    },
+    {
+     "t_send": 1792868288.176072,
+     "ttft": 0.5046906471252441,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 880,
+     "completion_tokens": 39,
+     "tpot": 0.026296872841684443,
+     "ttft_ratio": 0.7009592321183946,
+     "miss": null
+    },
+    {
+     "t_send": 1792868289.6803558,
+     "ttft": 0.49866223335266113,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 945,
+     "completion_tokens": 181,
+     "tpot": 0.036617933379279245,
+     "ttft_ratio": 0.6773001471683003,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 43,
+   "cls": "agentic",
+   "phase": "peak",
+   "arrive": 18.25,
+   "on_time": false,
+   "miss": "tpot",
+   "calls": [
+    {
+     "t_send": 1792868269.161176,
+     "ttft": 0.5642273426055908,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 555,
+     "completion_tokens": 143,
+     "tpot": 0.058590323152676434,
+     "ttft_ratio": 0.8833304776604161,
+     "miss": "tpot"
+    },
+    {
+     "t_send": 1792868278.2056322,
+     "ttft": 0.4834427833557129,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 621,
+     "completion_tokens": 52,
+     "tpot": 0.02614592570884555,
+     "ttft_ratio": 0.7377989826107789,
+     "miss": null
+    },
+    {
+     "t_send": 1792868280.0231493,
+     "ttft": 6.736416816711426,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 685,
+     "completion_tokens": 28,
+     "tpot": 0.01696388809769242,
+     "ttft_ratio": 10.03563026698164,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868287.325963,
+     "ttft": 0.6423707008361816,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 753,
+     "completion_tokens": 27,
+     "tpot": 0.01750344496506911,
+     "ttft_ratio": 0.933339194821913,
+     "miss": null
+    },
+    {
+     "t_send": 1792868288.5390918,
+     "ttft": 0.9297573566436768,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 819,
+     "completion_tokens": 28,
+     "tpot": 0.016600882565533673,
+     "ttft_ratio": 1.319272588355696,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868290.03375,
+     "ttft": 0.6747112274169922,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 887,
+     "completion_tokens": 27,
+     "tpot": 0.01612273546365591,
+     "ttft_ratio": 0.9348267785479628,
+     "miss": null
+    },
+    {
+     "t_send": 1792868291.1953628,
+     "ttft": 0.5477776527404785,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 953,
+     "completion_tokens": 192,
+     "tpot": 0.03825411746639232,
+     "ttft_ratio": 0.741994788676571,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 65,
+   "cls": "chat",
+   "phase": "peak",
+   "arrive": 23.75,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868274.661251,
+     "ttft": 0.8184607028961182,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 168,
+     "completion_tokens": 707,
+     "tpot": 0.03425319302858779,
+     "ttft_ratio": 1.5100750975943138,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 58,
+   "cls": "rag",
+   "phase": "peak",
+   "arrive": 22.0,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868272.9114099,
+     "ttft": 2.1550753116607666,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 3315,
+     "completion_tokens": 710,
+     "tpot": 0.03496926123399829,
+     "ttft_ratio": 1.621881702096532,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 25,
+   "cls": "agentic",
+   "phase": "ramp",
+   "arrive": 13.96424004376894,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868264.8753345,
+     "ttft": 4.118557691574097,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 559,
+     "completion_tokens": 146,
+     "tpot": 0.05593410853681893,
+     "ttft_ratio": 6.437761143531217,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868277.3028836,
+     "ttft": 6.733994722366333,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 624,
+     "completion_tokens": 57,
+     "tpot": 0.025155633687973022,
+     "ttft_ratio": 10.26523585726575,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868285.4462407,
+     "ttft": 0.8358137607574463,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 691,
+     "completion_tokens": 27,
+     "tpot": 0.015548458466163049,
+     "ttft_ratio": 1.2423838881567393,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868286.7588823,
+     "ttft": 0.6936004161834717,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 756,
+     "completion_tokens": 26,
+     "tpot": 0.020618791580200194,
+     "ttft_ratio": 1.006676946565271,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868288.067744,
+     "ttft": 0.6129038333892822,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 820,
+     "completion_tokens": 27,
+     "tpot": 0.011948961478013258,
+     "ttft_ratio": 0.8693671395592656,
+     "miss": null
+    },
+    {
+     "t_send": 1792868289.0966082,
+     "ttft": 3.5036721229553223,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 886,
+     "completion_tokens": 28,
+     "tpot": 0.01910622031600387,
+     "ttft_ratio": 4.856094418510495,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868293.2809813,
+     "ttft": 0.7513954639434814,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 954,
+     "completion_tokens": 27,
+     "tpot": 0.01805542065547063,
+     "ttft_ratio": 1.017461697960029,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868294.6110764,
+     "ttft": 0.6532402038574219,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1020,
+     "completion_tokens": 27,
+     "tpot": 0.024612298378577598,
+     "ttft_ratio": 0.8652188130561879,
+     "miss": null
+    },
+    {
+     "t_send": 1792868296.0439646,
+     "ttft": 0.5117013454437256,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1085,
+     "completion_tokens": 109,
+     "tpot": 0.037245743804507785,
+     "ttft_ratio": 0.6634701399594497,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 35,
+   "cls": "agentic",
+   "phase": "peak",
+   "arrive": 16.25,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868267.1625855,
+     "ttft": 4.878629207611084,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 553,
+     "completion_tokens": 160,
+     "tpot": 0.04848101603909858,
+     "ttft_ratio": 7.643759040518737,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868279.82181,
+     "ttft": 0.4037609100341797,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 631,
+     "completion_tokens": 63,
+     "tpot": 0.025366983106059414,
+     "ttft_ratio": 0.6138516306106874,
+     "miss": null
+    },
+    {
+     "t_send": 1792868281.9243193,
+     "ttft": 6.391916751861572,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 712,
+     "completion_tokens": 40,
+     "tpot": 0.017287627244606998,
+     "ttft_ratio": 9.427605828704385,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868289.0958576,
+     "ttft": 2.874412775039673,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 791,
+     "completion_tokens": 39,
+     "tpot": 0.022765078042682848,
+     "ttft_ratio": 4.119545360142849,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868292.9521139,
+     "ttft": 0.9644341468811035,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 869,
+     "completion_tokens": 38,
+     "tpot": 0.02252685057150351,
+     "ttft_ratio": 1.3446276010890257,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868294.8991294,
+     "ttft": 0.3652968406677246,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 945,
+     "completion_tokens": 206,
+     "tpot": 0.034672033496019314,
+     "ttft_ratio": 0.4961586970020029,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 69,
+   "cls": "rag",
+   "phase": "peak",
+   "arrive": 24.75,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868275.6609733,
+     "ttft": 6.7474846839904785,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 4945,
+     "completion_tokens": 662,
+     "tpot": 0.03200314625669355,
+     "ttft_ratio": 3.886240278756215,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 22,
+   "cls": "agentic",
+   "phase": "ramp",
+   "arrive": 13.133925536563698,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868264.0454504,
+     "ttft": 4.383322238922119,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 554,
+     "completion_tokens": 146,
+     "tpot": 0.05591058402225889,
+     "ttft_ratio": 6.8650309145217205,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868276.684322,
+     "ttft": 6.611302137374878,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 617,
+     "completion_tokens": 54,
+     "tpot": 0.027951406982709776,
+     "ttft_ratio": 10.105161845433516,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868284.8494399,
+     "ttft": 5.708660125732422,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 683,
+     "completion_tokens": 26,
+     "tpot": 0.019981136322021486,
+     "ttft_ratio": 8.510861163969322,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868291.127055,
+     "ttft": 0.6158778667449951,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 747,
+     "completion_tokens": 27,
+     "tpot": 0.020397653946509726,
+     "ttft_ratio": 0.8968006796432401,
+     "miss": null
+    },
+    {
+     "t_send": 1792868292.377741,
+     "ttft": 2.2340095043182373,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 813,
+     "completion_tokens": 28,
+     "tpot": 0.01909112047266077,
+     "ttft_ratio": 3.1766932162363846,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868295.2630713,
+     "ttft": 0.7825193405151367,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 880,
+     "completion_tokens": 27,
+     "tpot": 0.01955566956446721,
+     "ttft_ratio": 1.0868324173821344,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868296.6481907,
+     "ttft": 0.5035207271575928,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 946,
+     "completion_tokens": 208,
+     "tpot": 0.03315252152042113,
+     "ttft_ratio": 0.6836669750951702,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 34,
+   "cls": "rag",
+   "phase": "peak",
+   "arrive": 16.0,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868266.9117339,
+     "ttft": 4.515946865081787,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 5006,
+     "completion_tokens": 919,
+     "tpot": 0.03583739006441403,
+     "ttft_ratio": 2.57833106770299,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 80,
+   "cls": "chat",
+   "phase": "quiet",
+   "arrive": 33.5,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868284.4114015,
+     "ttft": 0.36616039276123047,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 227,
+     "completion_tokens": 639,
+     "tpot": 0.030643697068982737,
+     "ttft_ratio": 0.657674706351559,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 75,
+   "cls": "agentic",
+   "phase": "quiet",
+   "arrive": 28.5,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868279.411236,
+     "ttft": 0.34082794189453125,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 562,
+     "completion_tokens": 154,
+     "tpot": 0.025982661964067448,
+     "ttft_ratio": 0.5321279342615631,
+     "miss": null
+    },
+    {
+     "t_send": 1792868283.8303432,
+     "ttft": 6.087123394012451,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 627,
+     "completion_tokens": 52,
+     "tpot": 0.03189494563084023,
+     "ttft_ratio": 9.268554844328058,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868291.7420795,
+     "ttft": 0.6368513107299805,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 691,
+     "completion_tokens": 28,
+     "tpot": 0.0169150122889766,
+     "ttft_ratio": 0.9466388862578677,
+     "miss": null
+    },
+    {
+     "t_send": 1792868292.9536467,
+     "ttft": 0.8687186241149902,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 759,
+     "completion_tokens": 27,
+     "tpot": 0.016274268810565654,
+     "ttft_ratio": 1.2594688280028854,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868294.3982365,
+     "ttft": 0.6126699447631836,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 825,
+     "completion_tokens": 27,
+     "tpot": 0.021839536153353177,
+     "ttft_ratio": 0.8674972669213219,
+     "miss": null
+    },
+    {
+     "t_send": 1792868295.765318,
+     "ttft": 0.6690640449523926,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 891,
+     "completion_tokens": 27,
+     "tpot": 0.020190908358647272,
+     "ttft_ratio": 0.9257198823277656,
+     "miss": null
+    },
+    {
+     "t_send": 1792868297.1506317,
+     "ttft": 0.6986746788024902,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 956,
+     "completion_tokens": 28,
+     "tpot": 0.014081690046522353,
+     "ttft_ratio": 0.9454325829533021,
+     "miss": null
+    },
+    {
+     "t_send": 1792868298.3528445,
+     "ttft": 0.7706255912780762,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1024,
+     "completion_tokens": 27,
+     "tpot": 0.013404571093045749,
+     "ttft_ratio": 1.0193460202090954,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868299.542785,
+     "ttft": 0.7588469982147217,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1089,
+     "completion_tokens": 29,
+     "tpot": 0.023619064262935092,
+     "ttft_ratio": 0.9826442191190957,
+     "miss": null
+    },
+    {
+     "t_send": 1792868301.0317729,
+     "ttft": 0.49134159088134766,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1154,
+     "completion_tokens": 111,
+     "tpot": 0.02551281668923118,
+     "ttft_ratio": 0.6231345477252348,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 23,
+   "cls": "agentic",
+   "phase": "ramp",
+   "arrive": 13.416407864998739,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868264.3282,
+     "ttft": 4.296047925949097,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 564,
+     "completion_tokens": 144,
+     "tpot": 0.05929926725534292,
+     "ttft_ratio": 6.702102848594534,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868277.3015544,
+     "ttft": 6.280374526977539,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 629,
+     "completion_tokens": 55,
+     "tpot": 0.02573555928689462,
+     "ttft_ratio": 9.555533704035815,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868285.0888376,
+     "ttft": 5.8641111850738525,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 695,
+     "completion_tokens": 28,
+     "tpot": 0.013176114470870406,
+     "ttft_ratio": 8.703690070610543,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868291.412449,
+     "ttft": 0.7054951190948486,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 763,
+     "completion_tokens": 26,
+     "tpot": 0.019274930953979492,
+     "ttft_ratio": 1.021346535063118,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868292.7337558,
+     "ttft": 0.7128267288208008,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 826,
+     "completion_tokens": 27,
+     "tpot": 0.022482761969933145,
+     "ttft_ratio": 1.0089550301780619,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868294.1391714,
+     "ttft": 0.611703634262085,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 891,
+     "completion_tokens": 28,
+     "tpot": 0.018992026646931965,
+     "ttft_ratio": 0.8463557720679141,
+     "miss": null
+    },
+    {
+     "t_send": 1792868295.3981047,
+     "ttft": 0.7845242023468018,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 958,
+     "completion_tokens": 27,
+     "tpot": 0.017932781806358926,
+     "ttft_ratio": 1.060884654965249,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868296.7719893,
+     "ttft": 0.8751575946807861,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1023,
+     "completion_tokens": 27,
+     "tpot": 0.013040304183959961,
+     "ttft_ratio": 1.1579988020916787,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868298.0894058,
+     "ttft": 0.9614589214324951,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1089,
+     "completion_tokens": 27,
+     "tpot": 0.012308313296391414,
+     "ttft_ratio": 1.2450099338717968,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868299.4711125,
+     "ttft": 0.3920438289642334,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1155,
+     "completion_tokens": 112,
+     "tpot": 0.029194125184067735,
+     "ttft_ratio": 0.49704447412264136,
+     "miss": null
+    },
+    {
+     "t_send": 1792868303.1041355,
+     "ttft": 0.2612900733947754,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1253,
+     "completion_tokens": 74,
+     "tpot": 0.018321527193670403,
+     "ttft_ratio": 0.32129120614174655,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 52,
+   "cls": "reasoning",
+   "phase": "peak",
+   "arrive": 20.5,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868271.411938,
+     "ttft": 0.4054300785064697,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 33,
+     "completion_tokens": 976,
+     "tpot": 0.03405749785594451,
+     "ttft_ratio": 0.7976981377402258,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 77,
+   "cls": "chat",
+   "phase": "quiet",
+   "arrive": 30.5,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868281.4115305,
+     "ttft": 6.556970834732056,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 233,
+     "completion_tokens": 513,
+     "tpot": 0.03331343876197934,
+     "ttft_ratio": 11.745581432569736,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 81,
+   "cls": "agentic",
+   "phase": "quiet",
+   "arrive": 34.5,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868285.4112494,
+     "ttft": 0.23162198066711426,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 563,
+     "completion_tokens": 155,
+     "tpot": 0.03040741016338398,
+     "ttft_ratio": 0.361485728704041,
+     "miss": null
+    },
+    {
+     "t_send": 1792868290.4298453,
+     "ttft": 0.5233054161071777,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 628,
+     "completion_tokens": 59,
+     "tpot": 0.03445477732296648,
+     "ttft_ratio": 0.7965074826593268,
+     "miss": null
+    },
+    {
+     "t_send": 1792868293.1152208,
+     "ttft": 0.8011178970336914,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 697,
+     "completion_tokens": 28,
+     "tpot": 0.017866796917385526,
+     "ttft_ratio": 1.1881615083925716,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868294.5011342,
+     "ttft": 0.626563310623169,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 764,
+     "completion_tokens": 27,
+     "tpot": 0.024544385763315055,
+     "ttft_ratio": 0.9067486405545135,
+     "miss": null
+    },
+    {
+     "t_send": 1792868295.9035974,
+     "ttft": 0.6519534587860107,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 830,
+     "completion_tokens": 27,
+     "tpot": 0.02290001282325158,
+     "ttft_ratio": 0.9214889876834074,
+     "miss": null
+    },
+    {
+     "t_send": 1792868297.2944636,
+     "ttft": 0.6241278648376465,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 896,
+     "completion_tokens": 27,
+     "tpot": 0.016684798093942497,
+     "ttft_ratio": 0.862055061930451,
+     "miss": null
+    },
+    {
+     "t_send": 1792868298.496578,
+     "ttft": 0.6960194110870361,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 961,
+     "completion_tokens": 26,
+     "tpot": 0.014022989273071289,
+     "ttft_ratio": 0.9402491200095051,
+     "miss": null
+    },
+    {
+     "t_send": 1792868299.6652474,
+     "ttft": 0.8024508953094482,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1025,
+     "completion_tokens": 27,
+     "tpot": 0.01508333132817195,
+     "ttft_ratio": 1.0610920929711714,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868300.9634645,
+     "ttft": 0.47370314598083496,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1091,
+     "completion_tokens": 105,
+     "tpot": 0.024782737860312827,
+     "ttft_ratio": 0.6130095709878162,
+     "miss": null
+    },
+    {
+     "t_send": 1792868304.0150003,
+     "ttft": 0.24867486953735352,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1188,
+     "completion_tokens": 74,
+     "tpot": 0.017514356195110166,
+     "ttft_ratio": 0.31201363806443355,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 83,
+   "cls": "agentic",
+   "phase": "quiet",
+   "arrive": 36.5,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868287.4118593,
+     "ttft": 0.35625362396240234,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 552,
+     "completion_tokens": 149,
+     "tpot": 0.03724068725431288,
+     "ttft_ratio": 0.5583912601291573,
+     "miss": null
+    },
+    {
+     "t_send": 1792868293.4451048,
+     "ttft": 0.4718174934387207,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 629,
+     "completion_tokens": 67,
+     "tpot": 0.03636748862989021,
+     "ttft_ratio": 0.7178660988036831,
+     "miss": null
+    },
+    {
+     "t_send": 1792868296.3175414,
+     "ttft": 0.6423318386077881,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 708,
+     "completion_tokens": 38,
+     "tpot": 0.025855115942052892,
+     "ttft_ratio": 0.9487914898194801,
+     "miss": null
+    },
+    {
+     "t_send": 1792868297.9854708,
+     "ttft": 0.7045941352844238,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 784,
+     "completion_tokens": 39,
+     "tpot": 0.020538549674184697,
+     "ttft_ratio": 1.0123478955235976,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868299.5415642,
+     "ttft": 0.7602875232696533,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 862,
+     "completion_tokens": 40,
+     "tpot": 0.016954629849164914,
+     "ttft_ratio": 1.0625961191749171,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868301.0323925,
+     "ttft": 0.4048924446105957,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 941,
+     "completion_tokens": 186,
+     "tpot": 0.0231854670756572,
+     "ttft_ratio": 0.5506867658763628,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 31,
+   "cls": "rag",
+   "phase": "peak",
+   "arrive": 15.25,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868266.1614954,
+     "ttft": 2.4621806144714355,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 5475,
+     "completion_tokens": 1121,
+     "tpot": 0.033443166528429304,
+     "ttft_ratio": 1.3175548438643134,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 48,
+   "cls": "agentic",
+   "phase": "peak",
+   "arrive": 19.5,
+   "on_time": false,
+   "miss": "tpot",
+   "calls": [
+    {
+     "t_send": 1792868270.4109676,
+     "ttft": 0.5981607437133789,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 566,
+     "completion_tokens": 162,
+     "tpot": 0.050808835473860274,
+     "ttft_ratio": 0.9324407540348854,
+     "miss": "tpot"
+    },
+    {
+     "t_send": 1792868279.2601867,
+     "ttft": 5.829538583755493,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 636,
+     "completion_tokens": 54,
+     "tpot": 0.02386930303753547,
+     "ttft_ratio": 8.84603730463656,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868286.3550918,
+     "ttft": 0.8626749515533447,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 699,
+     "completion_tokens": 27,
+     "tpot": 0.02114072212806115,
+     "ttft_ratio": 1.278510487667054,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868287.8383543,
+     "ttft": 0.7013039588928223,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 765,
+     "completion_tokens": 28,
+     "tpot": 0.014155334896511503,
+     "ttft_ratio": 1.0145446059932328,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868288.9907842,
+     "ttft": 0.5758681297302246,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 833,
+     "completion_tokens": 26,
+     "tpot": 0.01870814323425293,
+     "ttft_ratio": 0.8130859579671367,
+     "miss": null
+    },
+    {
+     "t_send": 1792868290.1780684,
+     "ttft": 0.7747564315795898,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 897,
+     "completion_tokens": 27,
+     "tpot": 0.01368411687704233,
+     "ttft_ratio": 1.0697361844385085,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868291.4113429,
+     "ttft": 2.9881250858306885,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 963,
+     "completion_tokens": 27,
+     "tpot": 0.019245367783766527,
+     "ttft_ratio": 4.033918441890906,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868295.010182,
+     "ttft": 0.8943026065826416,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1029,
+     "completion_tokens": 28,
+     "tpot": 0.019594863609031395,
+     "ttft_ratio": 1.1809872652131286,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868296.55331,
+     "ttft": 0.7420639991760254,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1096,
+     "completion_tokens": 29,
+     "tpot": 0.028333408491952077,
+     "ttft_ratio": 0.9587390170232886,
+     "miss": null
+    },
+    {
+     "t_send": 1792868298.2284546,
+     "ttft": 0.8232531547546387,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1161,
+     "completion_tokens": 166,
+     "tpot": 0.026947587909120503,
+     "ttft_ratio": 1.041762929142219,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868303.564624,
+     "ttft": 0.2538645267486572,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1226,
+     "completion_tokens": 110,
+     "tpot": 0.02077869975238765,
+     "ttft_ratio": 0.3147731267807281,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 44,
+   "cls": "thai",
+   "phase": "peak",
+   "arrive": 18.5,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868269.411155,
+     "ttft": 2.630166530609131,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 23,
+     "completion_tokens": 674,
+     "tpot": 0.050665592190769417,
+     "ttft_ratio": 5.200527000710095,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 82,
+   "cls": "agentic",
+   "phase": "quiet",
+   "arrive": 35.5,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868286.411167,
+     "ttft": 0.2753434181213379,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 562,
+     "completion_tokens": 149,
+     "tpot": 0.031225310789572226,
+     "ttft_ratio": 0.42988824062660086,
+     "miss": null
+    },
+    {
+     "t_send": 1792868291.4097676,
+     "ttft": 1.8719279766082764,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 628,
+     "completion_tokens": 54,
+     "tpot": 0.034799688267257975,
+     "ttft_ratio": 2.8492054438482137,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868295.1264389,
+     "ttft": 0.7782189846038818,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 693,
+     "completion_tokens": 27,
+     "tpot": 0.020344981780418984,
+     "ttft_ratio": 1.1559138278557473,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868296.5545573,
+     "ttft": 0.7406606674194336,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 759,
+     "completion_tokens": 28,
+     "tpot": 0.02048466823719166,
+     "ttft_ratio": 1.0738103188393384,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868297.9170446,
+     "ttft": 0.5793426036834717,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 827,
+     "completion_tokens": 27,
+     "tpot": 0.024083165022043083,
+     "ttft_ratio": 0.8197277731637378,
+     "miss": null
+    },
+    {
+     "t_send": 1792868299.1912162,
+     "ttft": 0.47473812103271484,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 892,
+     "completion_tokens": 26,
+     "tpot": 0.025411548614501952,
+     "ttft_ratio": 0.6566225740424825,
+     "miss": null
+    },
+    {
+     "t_send": 1792868300.3996398,
+     "ttft": 0.4605677127838135,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 956,
+     "completion_tokens": 26,
+     "tpot": 0.016126413345336914,
+     "ttft_ratio": 0.6232310051201806,
+     "miss": null
+    },
+    {
+     "t_send": 1792868301.4365025,
+     "ttft": 0.5639533996582031,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1019,
+     "completion_tokens": 28,
+     "tpot": 0.011343903011745878,
+     "ttft_ratio": 0.7472055643036808,
+     "miss": null
+    },
+    {
+     "t_send": 1792868302.3734276,
+     "ttft": 0.3603861331939697,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1087,
+     "completion_tokens": 116,
+     "tpot": 0.021407991906870965,
+     "ttft_ratio": 0.46697263776348524,
+     "miss": null
+    },
+    {
+     "t_send": 1792868305.1961875,
+     "ttft": 0.34621167182922363,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1185,
+     "completion_tokens": 74,
+     "tpot": 0.014455736499943146,
+     "ttft_ratio": 0.4348027275720234,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 76,
+   "cls": "agentic",
+   "phase": "quiet",
+   "arrive": 29.5,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868280.41112,
+     "ttft": 7.226246356964111,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 561,
+     "completion_tokens": 146,
+     "tpot": 0.03513931899235166,
+     "ttft_ratio": 11.286601104200097,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868292.8341484,
+     "ttft": 0.447385311126709,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 626,
+     "completion_tokens": 55,
+     "tpot": 0.039179691561946166,
+     "ttft_ratio": 0.6814703901396938,
+     "miss": null
+    },
+    {
+     "t_send": 1792868295.5780144,
+     "ttft": 0.7407121658325195,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 691,
+     "completion_tokens": 27,
+     "tpot": 0.017447920945974495,
+     "ttft_ratio": 1.1010214282163056,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868296.9589636,
+     "ttft": 0.8187665939331055,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 757,
+     "completion_tokens": 27,
+     "tpot": 0.01197513250204233,
+     "ttft_ratio": 1.1879094580095835,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868298.2296965,
+     "ttft": 0.8213975429534912,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 822,
+     "completion_tokens": 27,
+     "tpot": 0.012305635672349196,
+     "ttft_ratio": 1.164277169317493,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868299.472237,
+     "ttft": 0.7145659923553467,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 888,
+     "completion_tokens": 27,
+     "tpot": 0.01508628405057467,
+     "ttft_ratio": 0.9897035905198708,
+     "miss": null
+    },
+    {
+     "t_send": 1792868300.6831007,
+     "ttft": 0.44268345832824707,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 954,
+     "completion_tokens": 29,
+     "tpot": 0.024782095636640276,
+     "ttft_ratio": 0.5994359625297861,
+     "miss": null
+    },
+    {
+     "t_send": 1792868301.8200073,
+     "ttft": 0.42104387283325195,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1024,
+     "completion_tokens": 27,
+     "tpot": 0.011329238231365498,
+     "ttft_ratio": 0.5569363397265238,
+     "miss": null
+    },
+    {
+     "t_send": 1792868302.6501698,
+     "ttft": 0.4550943374633789,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1089,
+     "completion_tokens": 221,
+     "tpot": 0.0197532903064381,
+     "ttft_ratio": 0.5893095985281696,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 45,
+   "cls": "agentic",
+   "phase": "peak",
+   "arrive": 18.75,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868269.6620803,
+     "ttft": 2.5870373249053955,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 559,
+     "completion_tokens": 141,
+     "tpot": 0.05168248074395316,
+     "ttft_ratio": 4.043825439476976,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868279.5568955,
+     "ttft": 0.46608853340148926,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 627,
+     "completion_tokens": 58,
+     "tpot": 0.02145167819240637,
+     "ttft_ratio": 0.7096894303791234,
+     "miss": null
+    },
+    {
+     "t_send": 1792868281.2460308,
+     "ttft": 6.592976093292236,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 695,
+     "completion_tokens": 26,
+     "tpot": 0.019077529907226564,
+     "ttft_ratio": 9.785493273903134,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868288.4227805,
+     "ttft": 0.49942541122436523,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 758,
+     "completion_tokens": 27,
+     "tpot": 0.018221470025869515,
+     "ttft_ratio": 0.7243298204849387,
+     "miss": null
+    },
+    {
+     "t_send": 1792868289.4684076,
+     "ttft": 0.5663127899169922,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 824,
+     "completion_tokens": 27,
+     "tpot": 0.02011897013737605,
+     "ttft_ratio": 0.8021427619220853,
+     "miss": null
+    },
+    {
+     "t_send": 1792868290.707566,
+     "ttft": 0.48857903480529785,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 890,
+     "completion_tokens": 27,
+     "tpot": 0.021022750781132624,
+     "ttft_ratio": 0.6762339582080247,
+     "miss": null
+    },
+    {
+     "t_send": 1792868291.8458438,
+     "ttft": 0.4283430576324463,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 956,
+     "completion_tokens": 124,
+     "tpot": 0.03962998467732251,
+     "ttft_ratio": 0.5796252471345688,
+     "miss": null
+    },
+    {
+     "t_send": 1792868297.148986,
+     "ttft": 0.6290643215179443,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1022,
+     "completion_tokens": 226,
+     "tpot": 0.02939812766181098,
+     "ttft_ratio": 0.8326463554175305,
+     "miss": null
+    },
+    {
+     "t_send": 1792868304.4556081,
+     "ttft": 0.3341958522796631,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1120,
+     "completion_tokens": 151,
+     "tpot": 0.018456209500630698,
+     "ttft_ratio": 0.4284562208713629,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 29,
+   "cls": "reasoning",
+   "phase": "ramp",
+   "arrive": 15.0,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868265.9116251,
+     "ttft": 0.5475430488586426,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 33,
+     "completion_tokens": 1251,
+     "tpot": 0.03330246238708496,
+     "ttft_ratio": 1.0773104748817366,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 78,
+   "cls": "agentic",
+   "phase": "quiet",
+   "arrive": 31.5,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868282.4116678,
+     "ttft": 6.98458456993103,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 554,
+     "completion_tokens": 162,
+     "tpot": 0.03558021006376847,
+     "ttft_ratio": 10.939051793157446,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868295.2612057,
+     "ttft": 0.5052840709686279,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 631,
+     "completion_tokens": 67,
+     "tpot": 0.03729353529034239,
+     "ttft_ratio": 0.7682007920465647,
+     "miss": null
+    },
+    {
+     "t_send": 1792868298.3514137,
+     "ttft": 0.7723000049591064,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 709,
+     "completion_tokens": 39,
+     "tpot": 0.019443938606663755,
+     "ttft_ratio": 1.1403469988321986,
+     "miss": "ttft"
+    },
+    {
+     "t_send": 1792868300.0432966,
+     "ttft": 0.536646842956543,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 786,
+     "completion_tokens": 40,
+     "tpot": 0.017519779694386017,
+     "ttft_ratio": 0.7704908010862067,
+     "miss": null
+    },
+    {
+     "t_send": 1792868301.43587,
+     "ttft": 0.6706087589263916,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 866,
+     "completion_tokens": 39,
+     "tpot": 0.014295490164505808,
+     "ttft_ratio": 0.9359508149705396,
+     "miss": null
+    },
+    {
+     "t_send": 1792868302.7334425,
+     "ttft": 0.3719325065612793,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 944,
+     "completion_tokens": 198,
+     "tpot": 0.019129808784136313,
+     "ttft_ratio": 0.5053430795669556,
+     "miss": null
+    },
+    {
+     "t_send": 1792868306.9296951,
+     "ttft": 0.3052380084991455,
+     "error": null,
+     "finish": "tool_calls",
+     "prompt_tokens": 1041,
+     "completion_tokens": 74,
+     "tpot": 0.013155143554896524,
+     "ttft_ratio": 0.40149688720703125,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 56,
+   "cls": "reasoning",
+   "phase": "peak",
+   "arrive": 21.5,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868272.4113674,
+     "ttft": 0.46989893913269043,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 33,
+     "completion_tokens": 1183,
+     "tpot": 0.030578008763076085,
+     "ttft_ratio": 0.924542920083995,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 70,
+   "cls": "chat",
+   "phase": "peak",
+   "arrive": 25.0,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868275.9118943,
+     "ttft": 6.274703502655029,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 126,
+     "completion_tokens": 991,
+     "tpot": 0.027213925785488553,
+     "ttft_ratio": 11.805650992765813,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 71,
+   "cls": "rag",
+   "phase": "peak",
+   "arrive": 25.25,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868276.1609433,
+     "ttft": 2.8895511627197266,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 5682,
+     "completion_tokens": 1132,
+     "tpot": 0.02708845007851733,
+     "ttft_ratio": 1.5045827454932186,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 86,
+   "cls": "rag",
+   "phase": "quiet",
+   "arrive": 39.5,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868290.4116142,
+     "ttft": 2.4243290424346924,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 1937,
+     "completion_tokens": 676,
+     "tpot": 0.025265625494497793,
+     "ttft_ratio": 2.463123233360114,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 32,
+   "cls": "chat",
+   "phase": "peak",
+   "arrive": 15.5,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868266.411248,
+     "ttft": 2.960773468017578,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 370,
+     "completion_tokens": 1434,
+     "tpot": 0.028496167747939456,
+     "ttft_ratio": 4.9970860219705955,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 42,
+   "cls": "rag",
+   "phase": "peak",
+   "arrive": 18.0,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868268.911358,
+     "ttft": 1.894059658050537,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 4494,
+     "completion_tokens": 1341,
+     "tpot": 0.029602830445588525,
+     "ttft_ratio": 1.1666520838007621,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 2,
+   "cls": "chat",
+   "phase": "ramp",
+   "arrive": 4.743416490252569,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868255.6546445,
+     "ttft": 0.20040583610534668,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 330,
+     "completion_tokens": 1962,
+     "tpot": 0.02889259405004802,
+     "ttft_ratio": 0.34404435382892135,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 7,
+   "cls": "chat",
+   "phase": "ramp",
+   "arrive": 7.745966692414834,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868258.6572907,
+     "ttft": 0.12098193168640137,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 428,
+     "completion_tokens": 1811,
+     "tpot": 0.030305292724904436,
+     "ttft_ratio": 0.19931125483756404,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 15,
+   "cls": "reasoning",
+   "phase": "ramp",
+   "arrive": 10.954451150103322,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868261.8653207,
+     "ttft": 0.3836512565612793,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 53,
+     "completion_tokens": 1770,
+     "tpot": 0.029591998924570206,
+     "ttft_ratio": 0.7474939241330333,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 11,
+   "cls": "chat",
+   "phase": "ramp",
+   "arrive": 9.486832980505138,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868260.3979511,
+     "ttft": 0.15205001831054688,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 235,
+     "completion_tokens": 1726,
+     "tpot": 0.03138532680013906,
+     "ttft_ratio": 0.2721253124126119,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 61,
+   "cls": "thai",
+   "phase": "peak",
+   "arrive": 22.75,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868273.661388,
+     "ttft": 0.5061702728271484,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 24,
+     "completion_tokens": 863,
+     "tpot": 0.047271087661973285,
+     "ttft_ratio": 1.0003365075635344,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 40,
+   "cls": "chat",
+   "phase": "peak",
+   "arrive": 17.5,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868268.4114046,
+     "ttft": 0.3897573947906494,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 362,
+     "completion_tokens": 1766,
+     "tpot": 0.026177463315363983,
+     "ttft_ratio": 0.6600463925328525,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 38,
+   "cls": "chat",
+   "phase": "peak",
+   "arrive": 17.0,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868267.9109592,
+     "ttft": 0.5177004337310791,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 269,
+     "completion_tokens": 1836,
+     "tpot": 0.02721806027259099,
+     "ttft_ratio": 0.9126495085607388,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 64,
+   "cls": "thai",
+   "phase": "peak",
+   "arrive": 23.5,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868274.4116933,
+     "ttft": 0.6551599502563477,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 22,
+     "completion_tokens": 1043,
+     "tpot": 0.041730614175265676,
+     "ttft_ratio": 1.2960632052548917,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 84,
+   "cls": "reasoning",
+   "phase": "quiet",
+   "arrive": 37.5,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868288.411488,
+     "ttft": 2.8976151943206787,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 29,
+     "completion_tokens": 1542,
+     "tpot": 0.019735338779179636,
+     "ttft_ratio": 5.712400580228051,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 39,
+   "cls": "thai",
+   "phase": "peak",
+   "arrive": 17.25,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868268.1614788,
+     "ttft": 0.4626495838165283,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 23,
+     "completion_tokens": 1156,
+     "tpot": 0.04743500808616737,
+     "ttft_ratio": 0.9147792067553698,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 87,
+   "cls": "chat",
+   "phase": "quiet",
+   "arrive": 40.5,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868291.4118543,
+     "ttft": 0.55867600440979,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 195,
+     "completion_tokens": 1805,
+     "tpot": 0.019000028162996414,
+     "ttft_ratio": 1.018088390723991,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 27,
+   "cls": "reasoning",
+   "phase": "ramp",
+   "arrive": 14.491376746189438,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868265.4029834,
+     "ttft": 0.47910308837890625,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 29,
+     "completion_tokens": 2495,
+     "tpot": 0.024236748767262378,
+     "ttft_ratio": 0.9445107705843396,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 79,
+   "cls": "chat",
+   "phase": "quiet",
+   "arrive": 32.5,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868283.4110146,
+     "ttft": 0.5300924777984619,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 329,
+     "completion_tokens": 2532,
+     "tpot": 0.017593716218602465,
+     "ttft_ratio": 0.910420743320673,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 46,
+   "cls": "chat",
+   "phase": "peak",
+   "arrive": 19.0,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868269.9110851,
+     "ttft": 4.708026647567749,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 432,
+     "completion_tokens": 2275,
+     "tpot": 0.02386188653863724,
+     "ttft_ratio": 7.743464880868008,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 17,
+   "cls": "reasoning",
+   "phase": "ramp",
+   "arrive": 11.61895003862225,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868262.5298831,
+     "ttft": 0.3141660690307617,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 29,
+     "completion_tokens": 2921,
+     "tpot": 0.02331271824771411,
+     "ttft_ratio": 0.619351540721068,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 41,
+   "cls": "chat",
+   "phase": "peak",
+   "arrive": 17.75,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868268.6613863,
+     "ttft": 0.5250895023345947,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 432,
+     "completion_tokens": 2828,
+     "tpot": 0.022375139533988484,
+     "ttft_ratio": 0.8636340498924255,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 33,
+   "cls": "thai",
+   "phase": "peak",
+   "arrive": 15.75,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868266.6615248,
+     "ttft": 0.5786700248718262,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 22,
+     "completion_tokens": 1822,
+     "tpot": 0.03586306315342978,
+     "ttft_ratio": 1.1447478236831379,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 3,
+   "cls": "chat",
+   "phase": "ramp",
+   "arrive": 5.477225575051661,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868256.3890727,
+     "ttft": 0.20174145698547363,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 161,
+     "completion_tokens": 3523,
+     "tpot": 0.022319723705484542,
+     "ttft_ratio": 0.37342240996848425,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 73,
+   "cls": "thai",
+   "phase": "quiet",
+   "arrive": 26.5,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868277.4111242,
+     "ttft": 0.7980632781982422,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 24,
+     "completion_tokens": 2390,
+     "tpot": 0.024608181030892986,
+     "ttft_ratio": 1.5772001545419805,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 89,
+   "cls": "chat",
+   "phase": "quiet",
+   "arrive": 42.5,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868293.4115562,
+     "ttft": 0.4111957550048828,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 434,
+     "completion_tokens": 2710,
+     "tpot": 0.016149527650778917,
+     "ttft_ratio": 0.6757530895725272,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 47,
+   "cls": "reasoning",
+   "phase": "peak",
+   "arrive": 19.25,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868270.1611176,
+     "ttft": 0.6445937156677246,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 29,
+     "completion_tokens": 3595,
+     "tpot": 0.01906771048215209,
+     "ttft_ratio": 1.2707613911635773,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 28,
+   "cls": "thai",
+   "phase": "ramp",
+   "arrive": 14.747881203752625,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868265.6595314,
+     "ttft": 0.4167802333831787,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 21,
+     "completion_tokens": 2165,
+     "tpot": 0.03426944834908364,
+     "ttft_ratio": 0.8248990269830356,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 85,
+   "cls": "chat",
+   "phase": "quiet",
+   "arrive": 38.5,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868289.4113817,
+     "ttft": 0.2698690891265869,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 374,
+     "completion_tokens": 3427,
+     "tpot": 0.015621537154554554,
+     "ttft_ratio": 0.4547078165570125,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 62,
+   "cls": "thai",
+   "phase": "peak",
+   "arrive": 23.0,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868273.9110768,
+     "ttft": 0.47948575019836426,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 21,
+     "completion_tokens": 2256,
+     "tpot": 0.030652401452582585,
+     "ttft_ratio": 0.949006927656337,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 88,
+   "cls": "reasoning",
+   "phase": "quiet",
+   "arrive": 41.5,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868292.4122477,
+     "ttft": 0.5411243438720703,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 29,
+     "completion_tokens": 3573,
+     "tpot": 0.014466404047151162,
+     "ttft_ratio": 1.0667803723451361,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 74,
+   "cls": "chat",
+   "phase": "quiet",
+   "arrive": 27.5,
+   "on_time": false,
+   "miss": "ttft",
+   "calls": [
+    {
+     "t_send": 1792868278.4127028,
+     "ttft": 6.676767349243164,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 427,
+     "completion_tokens": 4125,
+     "tpot": 0.015436165143169325,
+     "ttft_ratio": 11.004148906869656,
+     "miss": "ttft"
+    }
+   ]
+  },
+  {
+   "i": 51,
+   "cls": "chat",
+   "phase": "peak",
+   "arrive": 20.25,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868271.1613736,
+     "ttft": 0.45296621322631836,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 329,
+     "completion_tokens": 4742,
+     "tpot": 0.016760023201952703,
+     "ttft_ratio": 0.7779582880658108,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 68,
+   "cls": "thai",
+   "phase": "peak",
+   "arrive": 24.5,
+   "on_time": true,
+   "miss": null,
+   "calls": [
+    {
+     "t_send": 1792868275.4112346,
+     "ttft": 0.336073637008667,
+     "error": null,
+     "finish": "stop",
+     "prompt_tokens": 30,
+     "completion_tokens": 3453,
+     "tpot": 0.024401528672298993,
+     "ttft_ratio": 0.6622140630712651,
+     "miss": null
+    }
+   ]
+  },
+  {
+   "i": 36,
+   "cls": "long",
+   "phase": "peak",
+   "arrive": 16.5,
+   "on_time": false,
+   "miss": "cut off",
+   "calls": [
+    {
+     "t_send": 1792868267.411457,
+     "ttft": 9.889469385147095,
+     "error": null,
+     "finish": "length",
+     "prompt_tokens": 25381,
+     "completion_tokens": 8192,
+     "tpot": 0.010974037765132219,
+     "miss": "cut off"
+    }
+   ]
+  },
+  {
+   "i": 20,
+   "cls": "chat",
+   "phase": "ramp",
+   "arrive": 12.549900398011133,
+   "on_time": false,
+   "miss": "cut off",
+   "calls": [
+    {
+     "t_send": 1792868263.462025,
+     "ttft": 0.3269002437591553,
+     "error": null,
+     "finish": "length",
+     "prompt_tokens": 164,
+     "completion_tokens": 8192,
+     "tpot": 0.01279103870925093,
+     "miss": "cut off"
+    }
+   ]
+  }
+ ]
+}
