@@ -56,6 +56,6 @@ vllm serve $MODEL \
   --max-model-len 40960 --gpu-memory-utilization 0.95 \
   --speculative-config '{"method":"mtp","num_speculative_tokens":3}' \
   --max-num-batched-tokens 8192 \
-  --long-prefill-token-threshold 512 \
+  --long-prefill-token-threshold 1024 \
   --max-num-seqs 160 \
   2>&1 | tee ~/greenmind/runs/$RUN/serve.log
