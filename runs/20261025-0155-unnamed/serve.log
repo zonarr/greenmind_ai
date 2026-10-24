@@ -1845,3 +1845,4 @@ INFO:     103.153.118.95:37040 - "POST /v1/chat/completions HTTP/1.1" 200 OK
 INFO:     103.153.118.95:41836 - "GET /v1/models HTTP/1.1" 200 OK
 INFO:     103.153.118.95:41848 - "GET /v1/models HTTP/1.1" 200 OK
 INFO:     195.182.16.183:53046 - "GET /../../../../../../etc/passwd HTTP/1.1" 404 Not Found
+INFO:     103.153.118.95:39686 - "GET /v1/models HTTP/1.1" 200 OK

@@ -99,8 +99,8 @@ vllm serve CMKL/MANGO1.5-Qwen3.5-9B-AWQ-W4A16-mtp \
   --reasoning-parser qwen3 \
   --max-model-len 40960 --gpu-memory-utilization 0.95 \
   --speculative-config '{"method":"mtp","num_speculative_tokens":3}' \
-  --max-num-batched-tokens 2048 \
-  --long-prefill-token-threshold 1024 \
+  --max-num-batched-tokens 1536 \
+  --long-prefill-token-threshold 768 \
   --max-num-seqs 64 \
   --async-scheduling \
   2>&1 | tee ~/greenmind/runs/$RUN/serve.log

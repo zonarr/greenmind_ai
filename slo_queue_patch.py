@@ -8,7 +8,11 @@ What it changes
 
   This queue picks the next request to start in this order:
     1. requests that already started (preempted or resumed), oldest first
-    2. new requests that can still meet their TTFT deadline, newest first
+    2. new requests that can still meet their TTFT deadline, shortest prompt
+       first (ties: newest first). Under overload one 20K-token prompt costs
+       as much GPU time as ~15 chat requests, so short ones go first and more
+       requests make their deadline. Set GREENMIND_SLO_ORDER=newest for v1's
+       plain newest-first order.
     3. new requests already past their deadline, oldest first
   Every request is still answered in full (accuracy is unchanged); the late
   ones are simply finished when the load drops instead of during the peak.
@@ -16,8 +20,13 @@ What it changes
   It is only active when the server starts with GREENMIND_SLO_QUEUE=1, so the
   patched vLLM behaves exactly like stock vLLM otherwise.
 
+  v2 also estimates the start time from how vLLM really prefills: a prompt is
+  cut into chunks of at most GREENMIND_CHUNK tokens (match
+  --long-prefill-token-threshold, default 768), one chunk per scheduler step
+  of about GREENMIND_STEP_S seconds (default 0.16, from Final 12's log).
+
 Usage (inside the venv):
-  python slo_queue_patch.py          # install (keeps a .orig backup)
+  python slo_queue_patch.py          # install or upgrade (keeps a .orig backup)
   python slo_queue_patch.py --undo   # restore the original file
 """
 
@@ -26,7 +35,8 @@ import pathlib
 import shutil
 import sys
 
-MARKER = "# --- GreenMind SLO-first queue ---"
+MARKER_PREFIX = "# --- GreenMind SLO-first queue"
+MARKER = MARKER_PREFIX + " v2 ---"
 
 ANCHOR = (
     "def create_request_queue(policy: SchedulingPolicy) -> RequestQueue:\n"
@@ -49,10 +59,12 @@ import time as _gm_time
 # TTFT SLO from the briefing: 0.5 s + 0.25 s per 1,000 prompt tokens.
 _GM_TTFT_BASE_S = 0.5
 _GM_TTFT_PER_TOKEN_S = 0.25 / 1000
-# Rough time to prefill a prompt once started, so we do not pick a request
-# that will miss anyway. Override with GREENMIND_PREFILL_TOK_S.
-_GM_PREFILL_TOK_S = float(_gm_os.environ.get("GREENMIND_PREFILL_TOK_S", "8000"))
+# Time to prefill a prompt once started: one chunk of at most _GM_CHUNK tokens
+# per scheduler step (--long-prefill-token-threshold), each step ~_GM_STEP_S.
+_GM_CHUNK = max(1, int(_gm_os.environ.get("GREENMIND_CHUNK", "768")))
+_GM_STEP_S = float(_gm_os.environ.get("GREENMIND_STEP_S", "0.16"))
 _GM_START_OVERHEAD_S = 0.05
+_GM_ORDER = _gm_os.environ.get("GREENMIND_SLO_ORDER", "short")
 
 
 def _gm_started(request: Request) -> bool:
@@ -66,7 +78,8 @@ def _gm_started(request: Request) -> bool:
 def _gm_can_still_make_ttft(request: Request, now: float) -> bool:
     n = request.num_prompt_tokens
     deadline = request.arrival_time + _GM_TTFT_BASE_S + _GM_TTFT_PER_TOKEN_S * n
-    return now + _GM_START_OVERHEAD_S + n / _GM_PREFILL_TOK_S < deadline
+    steps = -(-n // _GM_CHUNK)  # ceil
+    return now + _GM_START_OVERHEAD_S + steps * _GM_STEP_S < deadline
 
 
 class SLOFirstRequestQueue(RequestQueue):
@@ -89,10 +102,15 @@ class SLOFirstRequestQueue(RequestQueue):
         if not self._new:
             raise IndexError("peek from an empty queue")
         now = _gm_time.time()
-        for request in reversed(self._new):
-            if _gm_can_still_make_ttft(request, now):
+        best = None
+        for request in reversed(self._new):  # newest first
+            if not _gm_can_still_make_ttft(request, now):
+                continue
+            if _GM_ORDER == "newest":
                 return request
-        return self._new[0]
+            if best is None or request.num_prompt_tokens < best.num_prompt_tokens:
+                best = request
+        return best if best is not None else self._new[0]
 
     def _contains(self, request: Request) -> bool:
         return any(r is request for r in self._started) or any(
@@ -160,7 +178,11 @@ class SLOFirstRequestQueue(RequestQueue):
 
 
 if _gm_os.environ.get("GREENMIND_SLO_QUEUE") == "1":
-    print("GreenMind SLO-first waiting queue: ENABLED", flush=True)
+    print(
+        f"GreenMind SLO-first waiting queue v2: ENABLED (order={_GM_ORDER}, "
+        f"chunk={_GM_CHUNK}, step={_GM_STEP_S}s)",
+        flush=True,
+    )
 '''
 
 
@@ -185,8 +207,13 @@ def main() -> None:
 
     text = path.read_text()
     if MARKER in text:
-        print(f"already patched: {path}")
+        print(f"already patched (v2): {path}")
         return
+    if MARKER_PREFIX in text:  # older version: start again from the original
+        if not backup.exists():
+            sys.exit(f"old patch found but no backup at {backup}; reinstall vllm")
+        text = backup.read_text()
+        print("upgrading the old patch to v2")
     if ANCHOR not in text:
         sys.exit(
             "this vLLM's request_queue.py is not the 0.32.0 one I expected; "
