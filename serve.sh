@@ -32,7 +32,7 @@ bash ~/greenmind/record.sh "$RUN" "$(realpath "$0")"
 export HF_HUB_OFFLINE=1 VLLM_NO_USAGE_STATS=1 DO_NOT_TRACK=1
 export VLLM_USE_FLASHINFER_SAMPLER=0
 export GREENMIND_SLO_QUEUE=1
-export GREENMIND_CHUNK=1024
+export GREENMIND_CHUNK=1280
 # Start the server. Each line ending in \ continues the same command.
 #   --host 0.0.0.0                 accept connections from outside the VM (the grader)
 #   --port $PORT                   listen on port 8000
@@ -129,8 +129,8 @@ vllm serve /home/researcher/models/MANGO1.5-Qwen3.5-9B-W8A8 \
   --reasoning-parser qwen3 \
   --max-model-len 40960 --gpu-memory-utilization 0.95 \
   --speculative-config '{"method":"mtp","num_speculative_tokens":3}' \
-  --max-num-batched-tokens 3072 \
-  --long-prefill-token-threshold 1536 \
+  --max-num-batched-tokens 2560 \
+  --long-prefill-token-threshold 1280 \
   --max-num-seqs 64 \
   --prefix-match-unit 32 \
   --async-scheduling \
