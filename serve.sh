@@ -129,8 +129,8 @@ vllm serve /home/researcher/models/MANGO1.5-Qwen3.5-9B-W8A8 \
   --reasoning-parser qwen3 \
   --max-model-len 40960 --gpu-memory-utilization 0.95 \
   --speculative-config '{"method":"mtp","num_speculative_tokens":3}' \
-  --max-num-batched-tokens 2048 \
-  --long-prefill-token-threshold 1024 \
+  --max-num-batched-tokens 3072 \
+  --long-prefill-token-threshold 1536 \
   --max-num-seqs 64 \
   --prefix-match-unit 32 \
   --async-scheduling \
